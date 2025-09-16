@@ -4,7 +4,15 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            //Adicionar produto ao carrinho
+
+
+            //Listar produtos no carrinho
+
+            //Ver valor total da compra
+
+            //Finalizar compra e sair do sistema
+
         }
     }
 }
