@@ -4,7 +4,6 @@
     {
         static void Main(string[] args)
         {
-            //Adicionar produto ao carrinho
             string[] produtoNome = new string[10];
             double[] valorProd = new double[10];
             int indice = 0;
@@ -13,16 +12,74 @@
             bool rodando = true;
             while(rodando)
             {
-                CadNome();
-                CadPreco();
+                Console.WriteLine("Selecione uma das opções:\n" +
+                                  "1 - Adicionar produto ao carrinho\n" +
+                                  "2 - Lista dos produtos do carrinho\n" +
+                                  "3 - Valor total da compra\n" +
+                                  "4 - Finalizar compra(pagamento)");
+                int botao = 0;
+                if (!int.TryParse(Console.ReadLine(), out botao))
+                {
+                    Console.WriteLine("Opção inválida, digite apenas números!");
+                    Console.ReadKey();
+                    continue;
+                }
+                switch (botao)
+                {
+                    //Adicionar produto ao carrinho
+                    case 1:
+                        string nome = CadNome();
+                        double preco = CadPreco();
+                        produtoNome[indice] = nome;
+                        valorProd[indice] = preco;
+                        Console.WriteLine("Compra adicionada ao carrinho!");
+                        Console.WriteLine("Deseja adicionar outro produto?");
+                        int botao2 = 0;
+                        if (!int.TryParse(Console.ReadLine(), out botao2))
+                            return;
+                        switch(botao2)
+                        {
+                            case 1:
+
+                                break;
+                            case 2:
+
+                                break;
+                            default:
+                                Console.WriteLine("Selecione uma opção válida!");
+                                break;
+                        }
+                        indice++;
+                        break;
+                    //Lista de produtos no carrinho
+                    case 2:
+                        Console.WriteLine("Compras incluidas:");
+                        if(indice == 0)
+                        {
+                            Console.WriteLine("Compra não adicionada");
+                        }
+                        for(int i = 0; i < indice; i++)
+                        {
+                            Console.WriteLine($"{i + 1} = {produtoNome[i]} ||R${valorProd[i]}||");
+                        }
+                        break;
+                    //Valor total da compra
+                    case 3:
+                        Console.WriteLine("Valor total da compra:");
+
+                        break;
+                    //Finalizar compra(pagamento)
+                    case 4:
+                        Console.WriteLine("Efetue o pagamento");
+                        Console.WriteLine("Obrigado pela preferência!");
+                        rodando = false;
+                        break;
+                    default:
+                        Console.WriteLine("Digite apenas uma das opções do menu!");
+                        break;
+                }
+
             }
-
-            //Listar produtos no carrinho
-
-            //Ver valor total da compra
-
-            //Finalizar compra e sair do sistema
-
 
             //Funções:
             static string CadNome()
