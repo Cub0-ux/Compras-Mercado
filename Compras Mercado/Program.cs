@@ -8,14 +8,13 @@
             string[] produtoNome = new string[10];
             double[] valorProd = new double[10];
             int indice = 0;
+            Console.Clear();
             Console.Write("Adicione máximo de 10 produtos!\n");
-            Console.Clear();    
             bool rodando = true;
             while(rodando)
             {
                 CadNome();
-                Console.WriteLine("Digite o preço do produto:");
-                double price = double.Parse(Console.ReadLine());
+                CadPreco();
             }
 
             //Listar produtos no carrinho
@@ -25,12 +24,18 @@
             //Finalizar compra e sair do sistema
 
 
-            //Métodos:
+            //Funções:
             static string CadNome()
             {
                 Console.WriteLine("Digite o nome do produto:");
                 string nome = Console.ReadLine();
                 return nome;
+            }
+            static double CadPreco()
+            {
+                Console.WriteLine("Digite o preço do produto:");
+                double price = double.Parse(Console.ReadLine());
+                return price;
             }
 
         }
